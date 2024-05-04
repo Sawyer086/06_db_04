@@ -82,5 +82,31 @@ test_database=# SELECT tablename, attname, avg_width FROM pg_stats WHERE tablena
 ```
 ![2](https://github.com/Sawyer086/06_db_04/blob/main/Screenshots/2.jpg)
 
+## Задача 3:
+
+```
+CREATE TABLE orders_1 AS
+SELECT * FROM orders WHERE price > 499;
+
+CREATE TABLE orders_2 AS
+SELECT * FROM orders WHERE price <= 499;
+
+DROP TABLE orders;
+```
+Если мы заранее знаем, что кол-во записей в БД будет равномерно распредлено по какому-то полю, то шардировать можно при проектировании. 
+
+## Задача 4:
+Создание backup'a
+```
+pg_dump -U user -F c test_database > test_database.sql
+```
+Для уникальности необходимо добавить в бекап test_database.sql UNIQUE:
+```
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    title character varying(80) UNIQUE NOT NULL,
+    price integer DEFAULT 0
+);
+```
 
 

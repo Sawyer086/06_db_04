@@ -70,7 +70,14 @@ sudo docker exec -it postgres-13 psql -U postgres
 \q
 ```
 ## Задача 2:
-
+Команды:
+```
+CREATE DATABASE test_database;
+\c test_database
+\i /tmp/backup/test_dump.sql
+test_database=# ANALYZE VERBOSE public.orders;
+test_database=# SELECT tablename, attname, avg_width FROM pg_stats WHERE tablename='orders' ORDER BY avg_width DESC LIMIT 1;
+```
 
 
 

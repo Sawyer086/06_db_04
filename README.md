@@ -14,7 +14,7 @@
 - вывода списка таблиц,
 - вывода описания содержимого таблиц,
 - выхода из psql.
-- 
+  
 ## Задача 2
 Используя `psql`, создайте БД `test_database`.
 
@@ -38,3 +38,40 @@
 
 ## Задача 4
 Используя утилиту `pg_dump`, создайте бекап БД `test_database`.Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
+
+---
+
+# Ответ: 
+## Задача 1:
+
+Команды:
+```
+sudo docker run --name postgres-13 -e POSTGRES_HOST_AUTH_METHOD=trust -v /var/docker/postgresql-13/db:/var/lib/postgresql/data -v /var/docker/postgresql-13/backup:/tmp/backup -d postgres:13
+sudo docker exec -it postgres-13 psql -U postgres
+```
+вывод списка БД:
+```
+\l
+```
+подключения к БД:
+```
+\c
+```
+вывод списка таблиц:
+```
+\dt[S+]
+```
+вывод описания содержимого таблиц:
+```
+\d[S+]
+```
+выход из psql:
+```
+\q
+```
+## Задача 2:
+
+
+
+
+

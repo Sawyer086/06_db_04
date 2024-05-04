@@ -49,6 +49,8 @@
 sudo docker run --name postgres-13 -e POSTGRES_HOST_AUTH_METHOD=trust -v /var/docker/postgresql-13/db:/var/lib/postgresql/data -v /var/docker/postgresql-13/backup:/tmp/backup -d postgres:13
 sudo docker exec -it postgres-13 psql -U postgres
 ```
+![1](https://github.com/Sawyer086/06_db_04/blob/main/Screenshots/1.jpg)
+
 вывод списка БД:
 ```
 \l
@@ -78,7 +80,7 @@ CREATE DATABASE test_database;
 test_database=# ANALYZE VERBOSE public.orders;
 test_database=# SELECT tablename, attname, avg_width FROM pg_stats WHERE tablename='orders' ORDER BY avg_width DESC LIMIT 1;
 ```
-
+![2](https://github.com/Sawyer086/06_db_04/blob/main/Screenshots/2.jpg)
 
 
 
